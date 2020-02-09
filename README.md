@@ -14,7 +14,11 @@ go get github.com/gqlengine/starwars@master
 
 
 
-after run, open http://localhost:9996/api/graphql/playground you will get this:
+after run, open http://localhost:9996 you will get this:
+
+![image-20200209154745670](assets/image-20200209154745670.png)
+
+open http://localhost:9996/api/graphql/playground you will get this:
 
 
 
