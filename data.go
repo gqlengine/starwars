@@ -111,4 +111,11 @@ func init() {
 	}
 }
 
-var reviews = map[Episode][]*Review{}
+var reviews = map[Episode][]*Review{
+	NEWHOPE: {
+		{
+			Stars:      5,
+			Commentary: "my favorite episode",
+		},
+	},
+}

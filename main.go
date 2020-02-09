@@ -43,10 +43,11 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/api/graphql", engine.ServeHTTP)
 	r.HandleFunc("/api/graphql/subscriptions", engine.ServeWebsocket)
-	r.PathPrefix("/api/graphql/playground").
-		Handler(http.StripPrefix("/api/graphql/playground",
-			http.FileServer(playground.WebBundle)))
+	r.PathPrefix("/api/graphql/playground").Handler(playground.GetHandle("/api/graphql/playground"))
 
+	r.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(AssetFile())))
+
+	println("open demo page at: http://localhost:9996/")
 	println("open playground http://localhost:9996/api/graphql/playground/")
 	if err := http.ListenAndServe(":9996", r); err != nil {
 		panic(err)

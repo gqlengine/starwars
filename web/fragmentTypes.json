@@ -1,0 +1,33 @@
+{
+  "__schema": {
+    "types": [
+      {
+        "kind": "INTERFACE",
+        "name": "Character",
+        "possibleTypes": [
+          {
+            "name": "Droid"
+          },
+          {
+            "name": "Human"
+          }
+        ]
+      },
+      {
+        "kind": "UNION",
+        "name": "SearchResult",
+        "possibleTypes": [
+          {
+            "name": "Human"
+          },
+          {
+            "name": "Droid"
+          },
+          {
+            "name": "Starship"
+          }
+        ]
+      }
+    ]
+  }
+}

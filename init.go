@@ -47,11 +47,14 @@ func initResolvers(engine *gqlengine.Engine) error {
 
 	engine.NewQuery(Search)
 
-	engine.NewQuery(GetHuman)
+	engine.NewQuery(GetHuman).
+		Name("human")
 
-	engine.NewQuery(GetDroid)
+	engine.NewQuery(GetDroid).
+		Name("droid")
 
-	engine.NewQuery(GetStartship)
+	engine.NewQuery(GetStartship).
+		Name("starship")
 
 	return nil
 }

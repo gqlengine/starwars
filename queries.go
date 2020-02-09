@@ -15,6 +15,7 @@ package main
 
 import (
 	"regexp"
+	"strings"
 )
 
 func GetHero(params *struct {
@@ -91,23 +92,31 @@ func Search(params *struct {
 	results []SearchResult,
 	err error,
 ) {
-	re, e := regexp.Compile(params.Text)
+	re, e := regexp.Compile(strings.ToLower(params.Text))
 	if e != nil {
 		err = e
 		return
 	}
+	match := func(texts ...string) bool {
+		for _, t := range texts {
+			if re.MatchString(strings.ToLower(t)) {
+				return true
+			}
+		}
+		return false
+	}
 	for _, h := range humans {
-		if re.MatchString(h.Name) || re.MatchString(h.HomePlanet) {
+		if match(h.Name, h.HomePlanet) {
 			results = append(results, h)
 		}
 	}
 	for _, d := range droids {
-		if re.MatchString(d.Name) || re.MatchString(d.PrimaryFunction) {
+		if match(d.Name, d.PrimaryFunction) {
 			results = append(results, d)
 		}
 	}
 	for _, s := range starships {
-		if re.MatchString(s.Name) {
+		if match(s.Name) {
 			results = append(results, s)
 		}
 	}
