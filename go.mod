@@ -21,5 +21,5 @@ require (
 	github.com/gqlengine/playground v0.0.1
 	github.com/klauspost/compress v1.9.8 // indirect
 	github.com/valyala/fasthttp v1.9.0 // indirect
-	golang.org/x/sys v0.0.0-20200202164722-d101bd2416d5 // indirect
+	golang.org/x/sys v0.1.0 // indirect
 )
